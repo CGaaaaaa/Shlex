@@ -19,4 +19,10 @@ Thumbs.db
 
 # Temporary files
 *.tmp
-*.temp 
+*.temp
+
+# Project files to keep local only
+PROJECT_SUMMARY.md
+CONTRIBUTING.md
+bisect.coverage
+.github/ 
