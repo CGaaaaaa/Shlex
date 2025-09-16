@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup MoonBit
+      uses: moonbitlang/setup-moonbit@v1
+      
+    - name: Check format
+      run: moon fmt --check
+      
+    - name: Build
+      run: moon build
+      
+    - name: Test
+      run: moon test
+      
+    - name: Check (JavaScript)
+      run: moon check --target js
+      
+    - name: Check (WASM-GC)
+      run: moon check --target wasm-gc 
